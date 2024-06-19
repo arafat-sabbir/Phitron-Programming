@@ -2,6 +2,7 @@
 using namespace std;
 
 int main()
+// O(log n) time complexity
 {
   int n;
   cin>>n;

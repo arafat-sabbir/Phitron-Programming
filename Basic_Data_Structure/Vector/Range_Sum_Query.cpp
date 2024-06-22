@@ -10,16 +10,27 @@ int main()
     {
         cin >> arr[i];
     }
+    int pre[n];
+    int sum;
+    pre[0] = arr[0];
+    for(int i = 1;i<n;i++){
+        pre[i]=arr[i]+pre[i-1];
+    }
     while (q--)
     {
-        int a, b;
-        cin >> a >> b;
-           int sum = 0;
-        for (int i = a - 1; i < b; i++)
+        int l, r;
+        cin >> l >> r;
+        l--;
+        r--;
+        if (l == 0)
         {
-            sum = sum + arr[i];
+            sum = pre[r];
         }
-        cout<<sum<<endl;
+        else
+        {
+            sum = pre[r]-pre[l-1];
+        }
+        cout << sum << endl;
     }
     return 0;
 }
